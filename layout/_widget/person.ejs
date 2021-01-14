@@ -1,0 +1,26 @@
+<div class="widget">
+  <div id="person">
+    <div class="person-wrap">
+      <div class="person-header">
+        <i class="el-icon-user">关于我</i>  
+      </div>
+      <el-divider></el-divider>
+      <div class="person-box">
+        <img class="avatar" src=<%= theme.avatar %>> 
+        <div class='profile'>
+          <h2 class='name'><%= config.title %></h2>  
+          <p class='profile-text'><%= config.subtitle %></p>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var person = new Vue({
+    el: "#person",
+    data() {
+      return {
+      }
+    },
+  })
+</script>

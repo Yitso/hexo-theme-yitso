@@ -1,0 +1,21 @@
+menu:
+  Home: 
+    index: /
+    prefix:
+      - /
+  Archives: 
+    index: archives/
+    prefix: 
+      - /archives/
+
+widgets:
+- person
+
+test:
+  "''"
+
+avatar: https://avatars2.githubusercontent.com/u/19208210?s=460&u=ef1c6b2e7a529a55d6104d08cad0e7596a5d7450&v=4
+
+excerpt_link: Read More
+
+fancybox: true

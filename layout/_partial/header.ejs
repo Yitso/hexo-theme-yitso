@@ -1,0 +1,61 @@
+<div id="fixed-header">
+  <nav id="main-nav">
+    <el-row :gutter="20">
+      <el-col :span="4">
+        <h1><a href="<%- config.root %>"><%= config.title %></a></h1>
+      </el-col>
+      <el-col :span="12">
+        <el-menu mode="horizontal" @select="handleSelect"
+            :text-color="menuTextColor" :active-text-color="menuActiveTextColor" :default-active="activeIndex" >
+          <% for (var i in theme.menu){ %>
+            <% let menuUrl = theme.menu[i].index ? url_for(theme.menu[i].index) : '/' %>
+            <% menuUrl = menuUrl.endsWith('/') ? menuUrl: (menuUrl + '/') %> 
+            <el-menu-item index="<%- theme.menu[i].index %>" >
+              <a href="<%- menuUrl %>"><%= i %></a>
+            </el-menu-item>
+          <% } %>
+        </el-menu>
+      </el-col>
+      <el-col :span="6">
+        <el-input prefix-icon="el-icon-search" v-model="input" placeholder="搜索" ></el-input>
+      </el-col>
+      <el-col :span="4">
+      </el-col>
+    </el-row>
+  </nav>
+</div>
+<script>
+  var headers = new Vue({
+    el: "#main-nav",
+    data() {
+      return {
+        activeIndex: '/',
+        menuTextColor: "#b3d8ff",
+        menuActiveTextColor: "#409EFF",
+        input: ''
+      }
+    },
+    mounted(){
+      const pathname = window.location.pathname 
+      const menus = window.THEME.menu
+      let activeIndex = '/'
+      let matchedPrefix = '/'
+      for(const key in menus){
+        const menu = menus[key]
+        for(const prefix of menu.prefix){
+          if (pathname.startsWith(prefix) && prefix.length > matchedPrefix.length){
+            activeIndex = menu.index
+            matchedPrefix = prefix
+          }
+        }
+      }
+      console.log(activeIndex)
+      this.activeIndex = activeIndex
+    },
+    methods: {
+      handleSelect(key) {
+        window.location.href = key
+      }
+    }
+  })
+</script>

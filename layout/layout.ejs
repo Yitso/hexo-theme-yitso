@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="<%= config.language %>">
+<%- partial('_partial/head') %>
+<script>
+  window.CONFIG = JSON.parse('<%- JSON.stringify(config).replace(/\'/g, "\\\'") %>')
+  window.THEME = JSON.parse('<%- JSON.stringify(theme).replace(/\'/g, "\\\'") %>')
+</script>
+<%- js('js/vue.js-2.6.12.min.js') %>
+<%- css('css/element-ui-2.14.1-theme-chalk.css') %>
+<%- js('js/element-ui-2.14.1.js') %>
+<body>
+  <header id="header"><%- partial('_partial/header') %></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><%- body %></div></div>
+    <aside id="sidebar" class="alignright"><%- partial('_partial/sidebar', {}, {cache: true}) %></aside>
+    <div class="clearfix"></div>
+  </div>
+</body>
+</html>

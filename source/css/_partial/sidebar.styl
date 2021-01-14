@@ -1,0 +1,77 @@
+#sidebar
+  width siderbar-width
+  line-height 1.8em
+  #fixed-sidebar
+    position fixed
+    width siderbar-width
+  @media screen and (max-width: 900px)
+    float none
+    width 100%
+  .widget
+    background #fff
+    box-shadow box-shadow-normal
+    margin-bottom 30px
+    word-wrap break-word
+    .title
+      padding 15px 20px
+      font-size 1em
+      font-weight normal
+
+    .entry
+      font-size 0.9em
+      padding 15px 20px
+
+    ul, ol, dl
+      list-style none
+      ul, ol, dl
+        list-style disc
+        margin-left 20px
+    
+    #person 
+      width 100%
+      avatar-image-width = siderbar-width * 0.2
+
+      .person-wrap
+        margin 0 avatar-image-width * 0.25
+        padding 8px 0 
+      
+      .person-header
+        i
+          color color-secondary-text
+          padding-top 8px
+          font-size 16px
+
+      .el-divider
+        margin 8px 0
+
+      .person-box
+        display flex
+        align-items center
+      img 
+        border-radius: 50%
+        width avatar-image-width
+        margin-right avatar-image-width * 0.25
+      .profile
+        height avatar-image-width
+
+        .name
+          font-size avatar-image-width * 0.33
+          margin-top avatar-image-width * 0.16
+          color color-primary-text
+        .profile-text
+          color color-secondary-text
+
+  .tag
+    small
+      margin-left 15px
+      &:before
+        content '('
+      &:after
+        content ')'
+
+  .tagcloud
+    .entry
+      padding-right 5px
+    a
+      margin-right 10px
+      display inline-block
